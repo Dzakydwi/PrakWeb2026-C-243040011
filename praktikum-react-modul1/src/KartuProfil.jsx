@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 
 function KartuProfil({ nama, npm, kelas, deskripsi, status, fotoUrl }) {
+  // 'Aktif' saat tab terbuka, 'Non Aktif' saat tab tersembunyi
   const [statusAktif, setStatusAktif] = useState(status);
   const [isPageVisible, setIsPageVisible] = useState(true);
 
@@ -16,7 +17,7 @@ function KartuProfil({ nama, npm, kelas, deskripsi, status, fotoUrl }) {
         timer = setTimeout(() => {
           setIsPageVisible(true);
           setStatusAktif(status);
-        }, 1200);
+        }, 3000);
       }
     };
 
@@ -27,89 +28,99 @@ function KartuProfil({ nama, npm, kelas, deskripsi, status, fotoUrl }) {
     };
   }, [status]);
 
+  const isOnline = isPageVisible && statusAktif === 'Aktif';
+
   return (
     <div
-      className="glass shine-border fade-in-up"
+      className="minimal-card"
       style={{
-        padding: '28px',
-        marginBottom: '24px',
-        transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-      }}
-      onMouseEnter={e => {
-        e.currentTarget.style.transform = 'translateY(-4px)';
-        e.currentTarget.style.boxShadow = '0 20px 60px rgba(99, 102, 241, 0.2)';
-      }}
-      onMouseLeave={e => {
-        e.currentTarget.style.transform = 'translateY(0)';
-        e.currentTarget.style.boxShadow = 'none';
+        padding: '24px',
+        marginBottom: '20px',
       }}
     >
-      <div style={{ display: 'flex', alignItems: 'center', gap: '24px', flexWrap: 'wrap' }}>
-        {/* Avatar Ring with pulse glow */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '20px', flexWrap: 'wrap' }}>
+        {/* Avatar */}
         <div style={{ position: 'relative', flexShrink: 0 }}>
-          <div
+          <img
+            src={fotoUrl || `https://ui-avatars.com/api/?name=${encodeURIComponent(nama)}&background=27272a&color=fafafa&size=80`}
+            alt={`Foto ${nama}`}
             style={{
-              width: '92px',
-              height: '92px',
+              width: '76px',
+              height: '76px',
               borderRadius: '50%',
-              background: 'linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4)',
-              padding: '3px',
-              animation: 'pulse-glow 3s ease-in-out infinite',
+              objectFit: 'cover',
+              border: '1px solid rgba(255, 255, 255, 0.12)',
+              display: 'block',
             }}
-          >
-            <img
-              src={fotoUrl || `https://ui-avatars.com/api/?name=${encodeURIComponent(nama)}&background=6366f1&color=fff&size=92`}
-              alt={`Foto ${nama}`}
-              style={{
-                width: '100%',
-                height: '100%',
-                borderRadius: '50%',
-                objectFit: 'cover',
-                border: '2px solid #0f0f1a',
-              }}
-            />
-          </div>
-
-          {/* Status Dot */}
-          <div
-            title={`Status: ${statusAktif}`}
+          />
+          {/* Online dot */}
+          <span
+            title={isOnline ? 'Online / Tab Aktif' : 'Away / Tab Tersembunyi'}
             style={{
               position: 'absolute',
-              bottom: '4px',
-              right: '4px',
-              width: '16px',
-              height: '16px',
-              backgroundColor: isPageVisible ? '#10b981' : '#f59e0b',
+              bottom: '2px',
+              right: '2px',
+              width: '12px',
+              height: '12px',
               borderRadius: '50%',
-              border: '2px solid #0f0f1a',
-              boxShadow: `0 0 10px ${isPageVisible ? '#10b981' : '#f59e0b'}`,
+              backgroundColor: isOnline ? '#10b981' : '#f59e0b',
+              border: '2px solid #09090b',
               transition: 'background-color 0.4s ease',
             }}
           />
         </div>
 
-        {/* Info Praktikan */}
-        <div style={{ flex: 1, minWidth: '240px' }}>
-          <h3
-            style={{
-              fontSize: '22px',
-              fontWeight: '700',
-              color: '#f1f5f9',
-              marginBottom: '6px',
-              letterSpacing: '-0.3px',
-            }}
-          >
-            {nama}
-          </h3>
+        {/* Info */}
+        <div style={{ flex: 1, minWidth: '220px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap', marginBottom: '4px' }}>
+            <h3
+              style={{
+                fontSize: '18px',
+                fontWeight: '600',
+                color: '#fafafa',
+                letterSpacing: '-0.01em',
+              }}
+            >
+              {nama}
+            </h3>
+
+            {/* Status Pill */}
+            <span
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '5px',
+                padding: '2px 8px',
+                borderRadius: '999px',
+                fontSize: '11px',
+                fontWeight: '500',
+                backgroundColor: isOnline ? 'rgba(16, 185, 129, 0.1)' : 'rgba(245, 158, 11, 0.1)',
+                color: isOnline ? '#34d399' : '#fbbf24',
+                border: `1px solid ${isOnline ? 'rgba(16, 185, 129, 0.25)' : 'rgba(245, 158, 11, 0.25)'}`,
+                transition: 'all 0.3s ease',
+              }}
+            >
+              <span
+                style={{
+                  width: '5px',
+                  height: '5px',
+                  borderRadius: '50%',
+                  backgroundColor: isOnline ? '#34d399' : '#fbbf24',
+                }}
+              />
+              {statusAktif}
+            </span>
+          </div>
 
           {/* Deskripsi / Bio */}
           {deskripsi && (
             <p
               style={{
                 fontSize: '13px',
-                color: '#94a3b8',
+                color: '#a1a1aa',
                 lineHeight: '1.6',
                 marginBottom: '12px',
+                maxWidth: '640px',
               }}
             >
               {deskripsi}
@@ -117,70 +128,55 @@ function KartuProfil({ nama, npm, kelas, deskripsi, status, fotoUrl }) {
           )}
 
           {/* Metadata Badges */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px', marginBottom: '14px' }}>
-            {/* NPM */}
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
             <div
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
-                padding: '4px 10px',
-                borderRadius: '8px',
-                backgroundColor: 'rgba(255, 255, 255, 0.04)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
+                fontSize: '12px',
+                color: '#71717a',
               }}
             >
-              <span style={{ fontSize: '13px' }}>🎓</span>
-              <span style={{ fontSize: '12px', color: '#64748b' }}>NPM:</span>
-              <span style={{ fontSize: '12px', fontWeight: '700', color: '#f1f5f9' }}>{npm}</span>
+              <span>NPM</span>
+              <span
+                style={{
+                  color: '#e4e4e7',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '12px',
+                  backgroundColor: 'rgba(255, 255, 255, 0.04)',
+                  padding: '2px 6px',
+                  borderRadius: '4px',
+                  border: '1px solid rgba(255, 255, 255, 0.06)',
+                }}
+              >
+                {npm}
+              </span>
             </div>
 
-            {/* Kelas */}
             <div
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
-                padding: '4px 10px',
-                borderRadius: '8px',
-                backgroundColor: 'rgba(255, 255, 255, 0.04)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
+                fontSize: '12px',
+                color: '#71717a',
               }}
             >
-              <span style={{ fontSize: '13px' }}>🏫</span>
-              <span style={{ fontSize: '12px', color: '#64748b' }}>Kelas:</span>
-              <span style={{ fontSize: '12px', fontWeight: '700', color: '#f1f5f9' }}>{kelas}</span>
+              <span>Kelas</span>
+              <span
+                style={{
+                  color: '#e4e4e7',
+                  backgroundColor: 'rgba(255, 255, 255, 0.04)',
+                  padding: '2px 6px',
+                  borderRadius: '4px',
+                  border: '1px solid rgba(255, 255, 255, 0.06)',
+                }}
+              >
+                {kelas}
+              </span>
             </div>
           </div>
-
-          {/* Status Badge */}
-          <span
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '6px',
-              padding: '5px 14px',
-              borderRadius: '999px',
-              fontSize: '12px',
-              fontWeight: '600',
-              letterSpacing: '0.4px',
-              backgroundColor: statusAktif === 'Aktif' ? 'rgba(16, 185, 129, 0.15)' : 'rgba(245, 158, 11, 0.15)',
-              color: statusAktif === 'Aktif' ? '#10b981' : '#f59e0b',
-              border: `1px solid ${statusAktif === 'Aktif' ? 'rgba(16, 185, 129, 0.35)' : 'rgba(245, 158, 11, 0.35)'}`,
-              transition: 'all 0.3s ease',
-            }}
-          >
-            <span
-              style={{
-                width: '6px',
-                height: '6px',
-                borderRadius: '50%',
-                backgroundColor: statusAktif === 'Aktif' ? '#10b981' : '#f59e0b',
-                boxShadow: `0 0 6px ${statusAktif === 'Aktif' ? '#10b981' : '#f59e0b'}`,
-              }}
-            />
-            Mahasiswa {statusAktif}
-          </span>
         </div>
       </div>
     </div>

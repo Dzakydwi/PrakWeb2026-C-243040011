@@ -3,31 +3,31 @@ import React from 'react';
 
 function SectionHeading({ icon, title, subtitle }) {
   return (
-    <div style={{ marginBottom: '24px' }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '6px' }}>
-        <span
-          style={{
-            width: '38px',
-            height: '38px',
-            background: 'linear-gradient(135deg, rgba(99,102,241,0.25), rgba(139,92,246,0.25))',
-            border: '1px solid rgba(99,102,241,0.35)',
-            borderRadius: '10px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '18px',
-            flexShrink: 0,
-            boxShadow: '0 4px 12px rgba(99,102,241,0.15)',
-          }}
-        >
-          {icon}
-        </span>
+    <div style={{ marginBottom: '20px' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
+        {icon && (
+          <span
+            style={{
+              fontSize: '15px',
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '26px',
+              height: '26px',
+              borderRadius: '6px',
+              backgroundColor: 'rgba(255, 255, 255, 0.05)',
+              border: '1px solid rgba(255, 255, 255, 0.08)',
+            }}
+          >
+            {icon}
+          </span>
+        )}
         <h2
           style={{
-            fontSize: '20px',
-            fontWeight: '700',
-            color: '#f1f5f9',
-            letterSpacing: '-0.3px',
+            fontSize: '17px',
+            fontWeight: '600',
+            color: '#fafafa',
+            letterSpacing: '-0.01em',
           }}
         >
           {title}
@@ -35,7 +35,7 @@ function SectionHeading({ icon, title, subtitle }) {
       </div>
 
       {subtitle && (
-        <p style={{ fontSize: '13px', color: '#64748b', paddingLeft: '48px', lineHeight: '1.5' }}>
+        <p style={{ fontSize: '13px', color: '#71717a', lineHeight: '1.5', marginTop: '2px' }}>
           {subtitle}
         </p>
       )}
@@ -43,8 +43,8 @@ function SectionHeading({ icon, title, subtitle }) {
       <div
         style={{
           height: '1px',
-          background: 'linear-gradient(to right, rgba(99,102,241,0.5), rgba(139,92,246,0.2), transparent)',
-          marginTop: '12px',
+          backgroundColor: 'rgba(255, 255, 255, 0.06)',
+          marginTop: '14px',
         }}
       />
     </div>

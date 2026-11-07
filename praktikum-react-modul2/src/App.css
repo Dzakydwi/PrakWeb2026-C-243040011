@@ -1,0 +1,464 @@
+/* Layout Utama */
+.wadah {
+  max-width: 600px;
+  margin: 48px auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.header-wadah {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.lencana-topik {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #475569;
+  background: #e2e8f0;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  margin-bottom: 10px;
+}
+
+.judul {
+  color: #0f172a;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin: 0 0 6px 0;
+}
+
+.subjudul {
+  color: #64748b;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Kartu Minimalis */
+.kartu {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.03), 0 1px 2px -1px rgba(0, 0, 0, 0.03);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kartu:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.05);
+}
+
+.kartu h2 {
+  margin: 0 0 18px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+
+/* Penghitung Klik Minimalis */
+.penghitung-box {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.penghitung-angka {
+  font-size: 32px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1;
+}
+
+.penghitung-label {
+  font-size: 14px;
+  color: #64748b;
+}
+
+.pesan-apresiasi {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+/* Baris & Grid Input */
+.baris {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #0f172a;
+  background-color: #ffffff;
+  transition: all 0.15s ease-in-out;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #0f172a;
+  box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.08);
+}
+
+.input::placeholder {
+  color: #94a3b8;
+}
+
+select.input {
+  cursor: pointer;
+  appearance: auto;
+}
+
+/* Tombol-tombol Modern & Minimalis */
+.tombol {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.tombol:hover {
+  background: #1e293b;
+  transform: translateY(-1px);
+}
+
+.tombol:active {
+  transform: translateY(0);
+}
+
+.tombol:disabled {
+  background: #f1f5f9;
+  color: #94a3b8;
+  border-color: #e2e8f0;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Tombol Merah / Hapus Minimalis (Soft Danger) */
+.tombol-merah {
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fee2e2;
+}
+
+.tombol-merah:hover {
+  background: #fee2e2;
+  border-color: #fecaca;
+  color: #b91c1c;
+}
+
+.tombol-merah-solid {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.tombol-merah-solid:hover {
+  background: #b91c1c;
+}
+
+.tombol-sekunder {
+  background: #f8fafc;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+}
+
+.tombol-sekunder:hover {
+  background: #f1f5f9;
+  color: #1e293b;
+}
+
+.tombol-kecil {
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 6px;
+}
+
+/* Ringkasan & Progress Bar */
+.ringkasan-bar {
+  margin-bottom: 16px;
+}
+
+.ringkasan {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0 0 8px 0;
+}
+
+.ringkasan strong {
+  color: #0f172a;
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 6px;
+  background: #f1f5f9;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: #0f172a;
+  border-radius: 9999px;
+  transition: width 0.3s ease;
+}
+
+/* Baris Filter (Pill Segmented Control) */
+.baris-filter {
+  display: flex;
+  background: #f1f5f9;
+  padding: 4px;
+  border-radius: 10px;
+  gap: 4px;
+  margin-bottom: 18px;
+}
+
+.tombol-filter {
+  flex: 1;
+  padding: 7px 12px;
+  border: none;
+  border-radius: 7px;
+  background: transparent;
+  color: #64748b;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  transition: all 0.15s ease;
+}
+
+.tombol-filter:hover {
+  color: #0f172a;
+}
+
+.tombol-filter.aktif {
+  background: #ffffff;
+  color: #0f172a;
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Daftar Item Tugas */
+.daftar {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: #f8fafc;
+  border: 1px solid #f1f5f9;
+  border-radius: 10px;
+  transition: all 0.15s ease;
+}
+
+.item:hover {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+}
+
+.item input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+  accent-color: #0f172a;
+  border-radius: 4px;
+  margin: 0;
+}
+
+.item span {
+  flex: 1;
+  font-size: 14px;
+  color: #1e293b;
+  word-break: break-word;
+}
+
+.selesai {
+  text-decoration: line-through;
+  color: #94a3b8 !important;
+}
+
+.kosong {
+  color: #94a3b8;
+  text-align: center;
+  font-size: 13px;
+  padding: 24px 0;
+  margin: 0;
+}
+
+.galat {
+  color: #dc2626;
+  font-size: 12px;
+  margin: 8px 0 0 2px;
+}
+
+/* Bagian Catatan Keuangan */
+.bagian-keuangan {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.keuangan-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.judul-keuangan {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 4px 0;
+}
+
+.subjudul-keuangan {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0;
+}
+
+.kotak-ringkasan-saldo {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.03);
+}
+
+.saldo-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+.saldo-nilai {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.saldo-meta {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 12px;
+  color: #64748b;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 12px;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.meta-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.meta-dot.hijau {
+  background-color: #10b981;
+}
+
+.meta-dot.merah {
+  background-color: #f43f5e;
+}
+
+.teks-hijau {
+  color: #059669;
+  font-weight: 600;
+}
+
+.teks-merah {
+  color: #e11d48;
+  font-weight: 600;
+}
+
+/* Transaksi List */
+.item-transaksi {
+  justify-content: space-between;
+}
+
+.item-transaksi-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.badge-jenis {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 6px;
+  text-transform: capitalize;
+}
+
+.badge-masuk {
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #d1fae5;
+}
+
+.badge-keluar {
+  background: #fff1f2;
+  color: #e11d48;
+  border: 1px solid #ffe4e6;
+}
+
+.item-keterangan {
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.item-transaksi-kanan {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}

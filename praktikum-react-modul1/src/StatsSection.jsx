@@ -8,32 +8,24 @@ function StatsSection({ daftarPraktikum, daftarSkill, daftarProyek }) {
 
   const stats = [
     {
-      label: 'Beban SKS Praktikum',
+      label: 'Beban SKS',
       value: `${totalSKS} SKS`,
-      sub: `${daftarPraktikum.length} Mata Kuliah`,
-      icon: '⚡',
-      color: '#6366f1',
+      sub: `${daftarPraktikum.length} Praktikum`,
     },
     {
-      label: 'Keahlian Dikuasai',
+      label: 'Keahlian',
       value: `${totalSkill} Skill`,
       sub: 'Frontend & Backend',
-      icon: '🎯',
-      color: '#06b6d4',
     },
     {
-      label: 'Showcase Proyek',
+      label: 'Portofolio',
       value: `${totalProyek} Proyek`,
-      sub: 'Repository Terbuka',
-      icon: '🚀',
-      color: '#8b5cf6',
+      sub: 'Repository Publik',
     },
     {
-      label: 'Status Akademik',
-      value: 'Aktif',
-      sub: 'Informatika Sem. 5',
-      icon: '🎓',
-      color: '#10b981',
+      label: 'Status Kuliah',
+      value: 'Semester 5',
+      sub: 'Informatika Aktif',
     },
   ];
 
@@ -41,74 +33,50 @@ function StatsSection({ daftarPraktikum, daftarSkill, daftarProyek }) {
     <div
       style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-        gap: '14px',
-        marginBottom: '40px',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))',
+        gap: '12px',
+        marginBottom: '36px',
       }}
     >
       {stats.map((item, idx) => (
         <div
           key={idx}
-          className="glass shine-border"
+          className="minimal-card"
           style={{
-            padding: '18px 20px',
-            borderRadius: '14px',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '14px',
-            transition: 'transform 0.25s ease, box-shadow 0.25s ease',
-            cursor: 'default',
-          }}
-          onMouseEnter={e => {
-            e.currentTarget.style.transform = 'translateY(-3px)';
-            e.currentTarget.style.boxShadow = `0 12px 30px ${item.color}25`;
-          }}
-          onMouseLeave={e => {
-            e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = 'none';
+            padding: '16px 18px',
           }}
         >
           <div
             style={{
-              width: '42px',
-              height: '42px',
-              borderRadius: '12px',
-              backgroundColor: `${item.color}15`,
-              border: `1px solid ${item.color}35`,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '20px',
-              flexShrink: 0,
+              fontSize: '12px',
+              fontWeight: '500',
+              color: '#71717a',
+              marginBottom: '6px',
+              textTransform: 'uppercase',
+              letterSpacing: '0.04em',
             }}
           >
-            {item.icon}
+            {item.label}
           </div>
-          <div>
-            <div
-              style={{
-                fontSize: '18px',
-                fontWeight: '800',
-                color: '#F1F5F9',
-                letterSpacing: '-0.3px',
-                lineHeight: '1.2',
-              }}
-            >
-              {item.value}
-            </div>
-            <div
-              style={{
-                fontSize: '12px',
-                fontWeight: '600',
-                color: item.color,
-                marginTop: '2px',
-              }}
-            >
-              {item.label}
-            </div>
-            <div style={{ fontSize: '11px', color: '#64748B', marginTop: '1px' }}>
-              {item.sub}
-            </div>
+          <div
+            style={{
+              fontSize: '20px',
+              fontWeight: '600',
+              color: '#fafafa',
+              letterSpacing: '-0.02em',
+              lineHeight: '1.2',
+              marginBottom: '4px',
+            }}
+          >
+            {item.value}
+          </div>
+          <div
+            style={{
+              fontSize: '12px',
+              color: '#a1a1aa',
+            }}
+          >
+            {item.sub}
           </div>
         </div>
       ))}
